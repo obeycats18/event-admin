@@ -1,0 +1,28 @@
+.btn-main {
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 2px solid #be2edd;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+}
+.btn-trans {
+  padding: 12px 36px;
+  background-color: transparent;
+  color: #be2edd;
+}
+.btn-trans:hover {
+  background-color: #be2edd;
+  color: #fff;
+}
+.btn-filled {
+  padding: 10px 82px;
+  background-color: #be2edd;
+  color: #fff;
+  box-shadow: 2px 4px 10px rgba(190, 46, 221, 0.3);
+}
+.btn-filled:hover {
+  background-color: transparent;
+  color: #be2edd;
+  box-shadow: 0 0 0 0;
+}

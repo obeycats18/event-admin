@@ -1,0 +1,60 @@
+
+  .header .top-line {
+    width: 100%;
+    height: 100px;
+    background: rgba(247, 247, 247, 0.89);
+  }
+  .header .top-line .container,
+  .header .top-line .row {
+    height: 100%;
+  }
+  .header .top-line button {
+    font-weight: 700;
+  }
+
+  .header .top-line .logo-title {
+    color: #be2edd;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    font-size: 33px;
+  }
+  .header .top-line .logo-desc {
+    transform: translateY(-10px);
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #1C191D;
+    font-size: 16px;
+  }
+  .header .top-line .logo-desc span i {
+    color: #be2edd;
+    font-size: 10px;
+  }
+  .header .top-line .menu {
+    text-align: center;
+  }
+  .header .top-line .menu ul li {
+    display: inline-block;
+    padding-right: 20px;
+  }
+  .header .top-line .menu ul li a {
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+  }
+  .header .top-line .menu ul li a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #be2edd;
+    transition: all 0.2s ease;
+  }
+  .header .top-line .menu ul li a:hover::before {
+    width: 100%;
+  }
+  .header .top-line .socials a {
+    color: #000000;
+    margin-right: 5px;
+  }
