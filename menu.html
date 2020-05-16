@@ -49,56 +49,54 @@
     <main>
         <div class="container">
             <div class="row justify-content-between">
-                <h3>Заказы</h3>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Сортировать по
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" data-sort="new" href="#">Сначала новые</a>
-                      <a class="dropdown-item" data-sort="old" href="#">Сначала старые</a>
-                    </div>
-                </div>
+                <h3>Меню</h3>
+                <button class="btn btn-primary" id='createMenuBtn' data-toggle="modal" data-target="#menuCreate">Добавить меню</button>
             </div>
 
-            
-            <div class="orders">
+            <div class="menus">
                 <div class="row">
                     
                 </div>
             </div>
-            
         </div>
     </main>
 
 
-    <!-- Hidden -->
-    <div class="hidden">
-        <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detailLabel">
+     <!-- Hidden -->
+     <div class="hidden">
+        <div class="modal fade" id="menuCreate" tabindex="-1" role="dialog" aria-labelledby="menuCreateLabel">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="#detailLabel">Детали заказа</h5>
+                    <h5 class="modal-title" id="#menuCreateLabel">Детали заказа</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- <p>Modal body text goes here.</p> -->
+                    <form>
+                        <div class="form-group">
+                          <label for="menu-name" class="col-form-label">Название меню:</label>
+                          <input type="text" class="form-control" id="menu-name">
+                        </div>
+                        <div class="form-group" id='menu-dishes'>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" id='sendMenu' data-dismiss="modal">Создать</button>
                 </div>
                 </div>
             </div>
         </div>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>    
 
-    <script src="./js/orders.js"></script>
+    <script src="./js/menu.js"></script>
 
 </body>
 </html>
