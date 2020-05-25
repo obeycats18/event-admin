@@ -4,6 +4,7 @@ fetch('http:/localhost:8080/dishes')
         if(data.status === 200) {
             renderDishes(data.dishes)
             sendDish()
+            deleteDish()
         }
 
     })
@@ -20,15 +21,18 @@ const renderDishes = dishes => {
                 <div class='col-xl-4 cost-block' style='text-align: right'>
                     <span>${dish.cost} грн/чел</span>
                 </div>
-                <div class='col-xl-4 weight-block' style='text-align: right'>
+                <div class='col-xl-3 weight-block' style='text-align: right'>
                     <span>${dish.weight ? dish.weight : '0'} грамм</span>
+                </div>
+                
+                <div class='col-xl-1 weight-block' style='text-align: right'>
+                    <i class="fa fa-trash" data-id="${dish._id}" id="deleteDish"></i>
                 </div>
             </div>
         
         `
 
         const docMenu = doc.parseFromString(dishDivStr, 'text/html');
-        console.log(docMenu.body.firstChild)
         dishesDiv.appendChild(docMenu.body.firstChild)
     })
 }
@@ -63,4 +67,30 @@ const sendDish = () => {
             })
 
     })
+}
+
+
+const deleteDish = () => {
+    const deleteDish = document.querySelectorAll('#deleteDish');
+    deleteDish.forEach( icon => {
+        icon.addEventListener('click', e => {
+            const id = e.target.dataset.id
+            const url = new URL('http:/localhost:8080/dishes/delete')
+            url.searchParams.set('id', id)
+
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            })
+                .then( response => response.json() )
+                .then( data => {
+                    if (data.status === 200) {
+                        console.log(data)
+                        document.location.reload(true);
+                    }
+                } )
+        })
+    } )
 }

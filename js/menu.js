@@ -5,6 +5,7 @@ fetch('http:/localhost:8080/menus')
             renderMenus(data.menu)
             createMenu()
             sendMenu()
+            deleteMenu()
         }
 
     })
@@ -12,12 +13,14 @@ fetch('http:/localhost:8080/menus')
 const renderMenus = menus => {
     let doc = new DOMParser()
     const menuDiv = document.querySelector('.menus > .row')
-    console.log('here')
     menus.forEach( menu => {
         const menuDivStr = `
             <div class="card col-xl-3 menu-card" ">
                 <div class="card-body">
-                    <h5 class="card-title">${menu.name}</h5>
+                   <div class="row align-items-center justify-content-between" style="margin-bottom: 20px;">
+                            <p>${menu.name}</p>
+                            <i class="fa fa-trash" data-id="${menu._id}" id="deleteMenu"></i>
+                        </div>
                     <h6 class="card-subtitle mb-2 text-muted">Блюда</h6>
                     <div class="dishes" style="max-height: 150px;overflow-y: auto;">
                         ${menu.dishes.map( dishes => `<p> ${dishes.name} </p>` ).join(' ')}
@@ -93,4 +96,30 @@ const sendMenu = () => {
             })
 
     })
+}
+
+const deleteMenu = () => {
+    const deleteMenu = document.querySelectorAll('#deleteMenu');
+    deleteMenu.forEach( icon => {
+        icon.addEventListener('click', e => {
+            console.log(e.target)
+            const id = e.target.dataset.id
+            const url = new URL('http:/localhost:8080/menus/delete')
+            url.searchParams.set('id', id)
+
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            })
+                .then( response => response.json() )
+                .then( data => {
+                    if (data.status === 200) {
+                        console.log(data)
+                        document.location.reload(true);
+                    }
+                } )
+        })
+    } )
 }

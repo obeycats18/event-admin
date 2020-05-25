@@ -49,13 +49,15 @@
     <main>
         <div class="container">
             <div class="row justify-content-between">
-                <h3>Меню</h3>
-                <button class="btn btn-primary" id='createMenuBtn' data-toggle="modal" data-target="#menuCreate">Добавить меню</button>
+                <h3>Дополнительные услуги</h3>
+                <button class="btn btn-primary" id='createDishBtn' data-toggle="modal" data-target="#servicesCreate">Добавить доп.услугу</button>
             </div>
 
-            <div class="menus">
-                <div class="row">
-                    
+            <div class="services" style="margin-top: 50px;">
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-xl-6"><b>Название</b></div>
+                    <div class="col-xl-5" style='text-align: right'><b>Цена</b></div>
+                    <div class="col-xl-1" style='text-align: right'></div>
                 </div>
             </div>
         </div>
@@ -64,27 +66,29 @@
 
      <!-- Hidden -->
      <div class="hidden">
-        <div class="modal fade" id="menuCreate" tabindex="-1" role="dialog" aria-labelledby="menuCreateLabel">
+        <div class="modal fade" id="servicesCreate" tabindex="-1" role="dialog" aria-labelledby="servicesCreateLabel">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="#menuCreateLabel">Создание меню</h5>
+                    <h5 class="modal-title" id="#servicesCreateLabel">Создание доп.услуги</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                          <label for="menu-name" class="col-form-label">Название меню:</label>
-                          <input type="text" class="form-control" id="menu-name">
+                            <label for="service-name" class="col-form-label">Название доп.услуги:</label>
+                            <input type="text" class="form-control" id="service-name">
                         </div>
-                        <div class="form-group" id='menu-dishes'>
+                        <div class="form-group">
+                            <label for="service-cost" class="col-form-label">Стоимость:</label>
+                            <input type="number" class="form-control" id="service-cost">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id='sendMenu' data-dismiss="modal">Создать</button>
+                    <button type="button" class="btn btn-primary" id='sendService' data-dismiss="modal">Создать</button>
                 </div>
                 </div>
             </div>
@@ -96,7 +100,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>    
 
-    <script src="./js/menu.js"></script>
+    <script src="./js/services.js"></script>
 
 </body>
 </html>
